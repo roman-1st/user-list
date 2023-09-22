@@ -1,16 +1,17 @@
 import {Link} from "react-router-dom";
 import React, {FC, memo} from "react";
-import {Posts} from "../types/Posts";
+import {Post} from "../../../shared/types/Post";
 import clsx from "clsx";
 
 interface PostsListItemProps {
     index: number;
     style: React.CSSProperties;
-    data: Posts[];
+    data: Post[];
 }
 
 export const PostsListItem: FC<PostsListItemProps> = memo(({ index, style, data }) => (
     <div
+        key={index}
         className={clsx("d-flex align-items-center justify-content-between p-1",
             index % 2 && "ListItemEven" )
         }

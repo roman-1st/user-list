@@ -1,9 +1,9 @@
 import {combineReducers, configureStore} from "@reduxjs/toolkit";
-import {postsAPI} from "../posts/redux/PostsService";
+import {postsAPI} from "../../shared/redux/PostsService";
 
 
 const rootReducer = combineReducers({
-    [postsAPI.reducerPath]: postsAPI.reducer
+    [postsAPI.reducerPath]: postsAPI.reducer,
 })
 
 export const createStore = () => {
@@ -13,6 +13,8 @@ export const createStore = () => {
             getDefaultMiddleware().concat(postsAPI.middleware)
     })
 }
+
+export const store = createStore()
 
 export type RootState = ReturnType<typeof rootReducer>
 export type AppStore = ReturnType<typeof createStore>

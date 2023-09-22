@@ -1,5 +1,5 @@
 import React from 'react';
-import {Post} from "../components";
+import { Post } from "../features/Post";
 
 export const PostPage = () => {
     return <Post />

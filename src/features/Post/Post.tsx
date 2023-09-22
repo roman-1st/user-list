@@ -1,18 +1,15 @@
 import React, {FC, memo} from 'react';
-import {postsAPI} from "../redux/PostsService";
+import {postsAPI} from "../../shared/redux/PostsService";
 import {useNavigate, useParams} from "react-router-dom";
+import {Loader} from "../../shared/Loader";
 
 export const Post: FC = memo(() => {
     const params = useParams()
     const navigate = useNavigate()
     const {data, isLoading} = postsAPI.useGetOnePostQuery(Number(params.id))
 
-    if(isLoading) {
-        return (
-            <div className="w-100 pt-5 d-flex align-items-center justify-content-center">
-                <span className="spinner-border spinner-border-sm align-middle ms-2" />
-            </div>
-        )
+    if(isLoading || !data) {
+        return <Loader />
     }
 
     return (
@@ -32,6 +29,5 @@ export const Post: FC = memo(() => {
                 </div>
             </div>
         </div>
-
     );
 });
