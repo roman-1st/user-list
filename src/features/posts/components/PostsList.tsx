@@ -26,7 +26,7 @@ export const PostsList: FC = memo(() => {
                 height={250}
                 itemCount={data.length}
                 itemSize={35}
-                width={400}
+                width={1000}
                 itemData={data}
                 onScroll={handleScroll}
                 initialScrollOffset={initialScrollOffset}
